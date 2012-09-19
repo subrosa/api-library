@@ -5,7 +5,7 @@
   <parent>
     <groupId>com.subrosa.commons</groupId>
     <artifactId>api-parent</artifactId>
-    <version>0.2-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
   </parent>
 
   <groupId>com.subrosa.commons</groupId>
@@ -60,4 +60,12 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <site>
+      <id>subrosa-site</id>
+      <name>Subrosa Maven Docs</name>
+      <url>${siteDeployRoot}/poms</url>
+    </site>
+  </distributionManagement>
 </project>
