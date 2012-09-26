@@ -11,7 +11,7 @@
   <groupId>com.subrosa.commons</groupId>
   <artifactId>api-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
 
   <name>Subrosa API Common Library Parent</name>
   <description>
