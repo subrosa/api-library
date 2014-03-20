@@ -9,7 +9,7 @@ public interface Code {
      * 
      * @return the integer code
      */
-    int getCode();
+    String getCode();
 
     /**
      * Retrieves the default text message related to this code.

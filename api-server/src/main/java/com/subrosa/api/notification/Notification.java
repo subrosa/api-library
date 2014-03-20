@@ -139,7 +139,7 @@ public class Notification {
     @SuppressWarnings("unused")
     @XmlElement(name = "code")
     @JsonProperty("code")
-    private int getIntegerCode() {
+    private String getStringCode() {
         return code.getCode();
     }
 }

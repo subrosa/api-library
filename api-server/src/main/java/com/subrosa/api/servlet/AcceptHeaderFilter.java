@@ -58,7 +58,7 @@ public class AcceptHeaderFilter implements Filter {
     protected static final String SUPPORTED_MIMETYPES_PARAM = "supportedMimeTypes";
 
     private static final String JSON_406_FORMAT = "{\"notifications\": [{"
-            + "\"code\": %d,\"severity\": \"ERROR\",\"text\": \"%s\","
+            + "\"code\": %s,\"severity\": \"ERROR\",\"text\": \"%s\","
             + "\"details\": {\"supportedTypes\": \"%s\"}}]}";
 
     private static final Logger LOG = LoggerFactory.getLogger(AcceptHeaderFilter.class);

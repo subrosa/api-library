@@ -21,24 +21,13 @@ public class GeneralCodeTest {
     @Test
     public void testUniqueCodes() {
         List<GeneralCode> codes = Arrays.asList(GeneralCode.values());
-        Set<Integer> integerCodes = new HashSet<Integer>();
+        Set<String> integerCodes = new HashSet<String>();
         for (GeneralCode code : codes) {
-            int integerCode = code.getCode();
+            String integerCode = code.getCode();
             assertFalse("Notification code " + integerCode + " is duplicated", integerCodes.contains(integerCode));
             integerCodes.add(integerCode);
         }
 
     }
     
-    /**
-     * Test to determine if all general notification codes have the proper numeric category.
-     */
-    @Test
-    public void testCodeCategories() {
-        List<GeneralCode> codes = Arrays.asList(GeneralCode.values());
-        for (GeneralCode code : codes) {
-            int integerCode = code.getCode();
-            assertTrue("Notification code " + integerCode + " is not in general code range 10XXXXXXXX", integerCode >= 1000000000 && integerCode <= 1099999999);
-        }
-    }
 }
