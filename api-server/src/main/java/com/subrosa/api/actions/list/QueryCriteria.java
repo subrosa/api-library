@@ -139,6 +139,7 @@ public class QueryCriteria<T> {
         try {
             @SuppressWarnings("unchecked")
             FilterValueTranslator<Object, Object> translator = filterable.translator().newInstance();
+            LOG.debug("Using translator of type {} for field {}", translator.getClass(), filter.getField());
             String queryField = filterable.value().equals(Filterable.VALUE_UNSET) ? null : filterable.value();
             return new Filter(filter.getFilterKey(), filter.getValue(), translator, queryField);
         } catch (InstantiationException e) {
@@ -239,5 +240,9 @@ public class QueryCriteria<T> {
 
         return String.format("Class: %s, Filters: (%s), Sort: %s, Limit: %s, Offset: %s", clazz, StringUtils.join(filterStrings, ","),
                              sort, limit, offset);
+    }
+
+    public Class<T> getTargetClass() {
+        return clazz;
     }
 }

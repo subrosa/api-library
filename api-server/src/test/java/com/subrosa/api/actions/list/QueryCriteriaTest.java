@@ -26,7 +26,7 @@ public class QueryCriteriaTest {
                 "name", "nameNot",
                 "age", "ageLessThan", "ageGreaterThan", "ageBefore", "ageAfter",
                 "createDateBefore", "createDateAfter", "createDateLessThan", "createDateGreaterThan",
-                "oneGroup", "oneGroupNot", "createDateGreaterThan", "createDateAfter"
+                "oneGroup", "oneGroupNot"
         );
         Assert.assertTrue(filterKeys.containsAll(expectedKeys));
         Assert.assertFalse(filterKeys.contains("nameLessThan"));
