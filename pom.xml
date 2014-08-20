@@ -20,9 +20,9 @@
   <url>${urlRoot}/api</url>
 
   <scm>
-    <connection>scm:git:https://github.com/subrosagames/api-library</connection>
-    <developerConnection>scm:git:https://github.com/subrosagames/api-library</developerConnection>
-    <url>https://github.com/subrosagames/api-library</url>
+    <connection>scm:git:https://github.com/subrosa/api-library</connection>
+    <developerConnection>scm:git:https://github.com/subrosa/api-library</developerConnection>
+    <url>https://github.com/subrosa/api-library</url>
     <tag>HEAD</tag>
   </scm>
 
