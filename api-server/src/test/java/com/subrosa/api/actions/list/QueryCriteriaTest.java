@@ -26,7 +26,8 @@ public class QueryCriteriaTest {
                 "name", "nameNot",
                 "age", "ageLessThan", "ageGreaterThan", "ageBefore", "ageAfter",
                 "createDateBefore", "createDateAfter", "createDateLessThan", "createDateGreaterThan",
-                "oneGroup", "oneGroupNot"
+                "oneGroup", "oneGroupNot",
+                "entityObjectBefore", "entityObjectAfter", "entityObjectLessThan", "entityObjectGreaterThan"
         );
         Assert.assertTrue(filterKeys.containsAll(expectedKeys));
         Assert.assertFalse(filterKeys.contains("nameLessThan"));
@@ -57,7 +58,19 @@ public class QueryCriteriaTest {
         @Filterable(operators = { Operator.GREATER_THAN, Operator.LESS_THAN })
         private Date createDate;
 
+        @Filterable(
+                operators = { Operator.GREATER_THAN, Operator.LESS_THAN },
+                translator = TimestampToDateTranslator.class,
+                childOperand = "innerDate"
+        )
+        private EntityObject entityObject;
+
         private String notAnnotated;
+    }
+
+    public class EntityObject {
+
+        private Date innerDate;
     }
 
     // CHECKSTYLE-ON: JavadocMethod
