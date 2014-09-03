@@ -141,7 +141,8 @@ public class QueryCriteria<T> {
             FilterValueTranslator<Object, Object> translator = filterable.translator().newInstance();
             LOG.debug("Using translator of type {} for field {}", translator.getClass(), filter.getField());
             String queryField = filterable.value().equals(Filterable.VALUE_UNSET) ? null : filterable.value();
-            return new Filter(filter.getFilterKey(), filter.getValue(), translator, queryField);
+            String childOperator = filterable.childOperand().equals(Filterable.VALUE_UNSET) ? null : filterable.childOperand();
+            return new Filter(filter.getFilterKey(), filter.getValue(), translator, queryField, childOperator);
         } catch (InstantiationException e) {
             throw new IllegalStateException("Configured filter value translator " + filterable.translator() + " cannot be instantiated.", e);
         } catch (IllegalAccessException e) {

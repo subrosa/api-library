@@ -47,4 +47,10 @@ public @interface Filterable {
      */
     Operator[] operators() default { Operator.EQUAL, Operator.NOT_EQUAL };
 
+    /**
+     * Specifies that the operand is in fact a field on an entity rather than the field itself.
+     *
+     * Defaults to {@code null}, meaning to use the field itself.
+     */
+    String childOperand() default VALUE_UNSET;
 }

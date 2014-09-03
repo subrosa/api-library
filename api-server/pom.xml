@@ -7,7 +7,6 @@
     <version>0.4-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.subrosa.commons</groupId>
   <artifactId>api-server</artifactId>
   <packaging>jar</packaging>
 

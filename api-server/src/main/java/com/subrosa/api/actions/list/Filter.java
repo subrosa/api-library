@@ -24,6 +24,7 @@ public class Filter {
     private Object value;
     private String filterKey;
     private FilterValueTranslator<Object, Object> translator;
+    private String childOperand;
 
     /**
      * Construct with the given key, value and value translator with optional explicit query field.
@@ -33,7 +34,7 @@ public class Filter {
      * @param translator filter value translator
      * @param queryField explicitly set field on which to query
      */
-    public Filter(String filterKey, Object value, FilterValueTranslator<Object, Object> translator, String queryField) {
+    public Filter(String filterKey, Object value, FilterValueTranslator<Object, Object> translator, String queryField, String childOperand) {
         field = parseFieldNameFromFilterKey(filterKey);
         this.queryField = field;
         operator = parseOperatorFromFilterKey(filterKey);
@@ -45,6 +46,7 @@ public class Filter {
         } else {
             this.queryField = queryField;
         }
+        this.childOperand = childOperand;
     }
 
     /**
@@ -56,7 +58,7 @@ public class Filter {
      * @param value filter value
      */
     public Filter(String filterKey, Object value) {
-        this(filterKey, value, new FilterValueTranslator.IdentityValueTranslator(), null);
+        this(filterKey, value, new FilterValueTranslator.IdentityValueTranslator(), null, null);
     }
 
     /**
@@ -93,34 +95,34 @@ public class Filter {
         return Operator.EQUAL;
     }
 
-    @XmlValue
     @JsonValue
     public Object getValue() {
         return value;
     }
 
-    @XmlTransient
     @JsonIgnore
     public String getFilterKey() {
         return filterKey;
     }
 
-    @XmlTransient
     @JsonIgnore
     public String getField() {
         return field;
     }
 
-    @XmlTransient
     @JsonIgnore
     public Operator getOperator() {
         return operator;
     }
 
-    @XmlTransient
     @JsonIgnore
     public FilterValueTranslator<Object, Object> getTranslator() {
         return translator;
+    }
+
+    @JsonIgnore
+    public String getChildOperand() {
+        return childOperand;
     }
 
     @Override
